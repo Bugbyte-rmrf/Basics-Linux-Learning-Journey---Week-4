@@ -24,6 +24,7 @@ The error `Permission denied` means that the script has not been marked as execu
 
 **shebang** - A shorten form created by two characters `#!` which are traditionally called the **hash** and the **bang** respectively. 
 
+``bash``
 `#!/bin/sh`
 
 `echo "Hello, World!"`
