@@ -151,6 +151,7 @@ I also learned that it is important that there are no spaces between the name of
 ---
 
 **i)`if` Command**
+
 I learned that Conditionals lets you to make your script do different functions based on tests called **branching**.
 
 The `if` statement is the basic operator to implement branching.
@@ -216,6 +217,36 @@ else
   echo "I didn't understand that"
 fi
 ```
+
+The code above compares the first argument passed to the script. If it is `hello`, the first block is executed. 
+
+If not, the script checks to see if it is goodbye and echos a different message if so. 
+
+Otherwise, a third message is sent. Note that the `$1` variable is quoted and the string comparison operator is used instead of the numeric version (`-eq`).
+
+
+**v)`if/elif/else` Command**
+
+```bash
+#!/bin/bash
+
+case "$1" in
+hello|hi)
+  echo "hello yourself"
+  ;;
+goodbye)
+  echo "nice to have met you"
+  echo "I hope to see you again"
+  ;;
+*)
+  echo "I didn't understand that"
+esac
+```
+The case statement starts off with a description of the expression being tested: case EXPRESSION in. The expression here is the quoted $1.
+
+Next, each set of tests are executed as a pattern match terminated by a closing parenthesis. The previous example first looks for hello or hi; multiple options are separated by the vertical bar | which is an OR operator in many programming languages. Following that are the commands to be executed if the pattern returns true, which are terminated by two semicolons. The pattern repeats.
+
+The * pattern is the same as an else because it matches anything. The behavior of the case statement is similar to the if/elif/else statement in that processing stops after the first match. If none of the other options matched, the * ensures that the last one will match.
 
 
 
