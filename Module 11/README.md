@@ -7,13 +7,14 @@ The screenshots included in this README provide evidence of the commands I used 
 ---
 
 ### 1. Shell Scripts in a Nutshell
-A **shell script** - A file of executable commands that has been stored in a text file.  
+**Shell script** - A file of executable commands that has been stored in a text file.  
 
 I learned that shell scripts have access to all the commands of the shell, including logic. 
 
 A script can therefore test for the presence of a file or look for particular output and change its behavior accordingly. 
 
 Running a script can be done either by passing it as an argument to your shell or by running it directly.
+
 
 <img width="608" height="99" alt="Screenshot from 2026-10-14 10-40-20" src="https://github.com/user-attachments/assets/2c07cb41-9ebe-44a7-ae29-e1d61f493b4b" />
 
@@ -22,6 +23,16 @@ The error `Permission denied` means that the script has not been marked as execu
 `chmod` is used to change the permissions of a file.
 
 **shebang** - A shorten form created by two characters `#!` which are traditionally called the **hash** and the **bang** respectively. 
+
+``bash
+`#!/bin/sh
+echo "Hello, World!"`
+
+or 
+
+``bash
+`#!/bin/bash
+echo "Hello, World!"`
 
 It is used for traditional shell scripts and other text-based languages like Perl, Ruby, and Python.
 
@@ -43,9 +54,9 @@ I learned that you can type with your keyboard, using the arrow keys to move aro
 
 To get familiar with the editor, run `nano test.sh` and start typing out a simple shell script while inside:
 
-<img width="613" height="438" alt="Screenshot from 2026-10-14 11-05-18" src="https://github.com/user-attachments/assets/48fe6d16-c03b-49fa-891f-ce298ea200b6" />
-
 <img width="611" height="37" alt="Screenshot from 2026-10-14 11-09-34" src="https://github.com/user-attachments/assets/bf86ad9a-348f-4dd5-907d-49954256d968" />
+
+<img width="613" height="438" alt="Screenshot from 2026-10-14 11-05-18" src="https://github.com/user-attachments/assets/48fe6d16-c03b-49fa-891f-ce298ea200b6" />
 
 At this point, you can exit the program without saving by pressing the N key, or save first by pressing Y to save. The default is to save the file with the current file name. You can press the Enter key to save and exit.
 
@@ -63,9 +74,40 @@ b) The Visual Editor,
 `vi`, or its newer version, VI improved (`vim`), is a remarkably powerful editor but has a steep learning curve. 
 
 ### 3. Scripting Basics
-a) Variables
+**a) Variables**
 
-Variables, which hold temporary information in the script
+I learned that variables hold temporary information in the script. 
+
+``bash
+`#!/bin/bash
+ANIMAL="penguin"
+echo "My favorite animal is a $ANIMAL"`
+
+The variable name is `ANIMAL` and the `equals sign` assigns the string penguin.
+
+The script echos a string to the console. The string contains the name of the variable preceded by a `dollar sign`. 
+
+When the interpreter sees that `dollar sign` it recognizes that it will be substituting the contents of the variable, which is called **interpolation**. 
+
+The output of the script is then `My favorite animal is a penguin`.
+
+I also learned another way to assign to a variable is to use the output of another command as the contents of the variable by enclosing the command in back ticks:
+
+``bash
+`#!/bin/bash
+CURRENT_DIRECTORY=`pwd`
+echo "You are in $CURRENT_DIRECTORY"`
+
+This pattern is often used to process text. 
+
+It is possible to get input from the user of your script and assign it to a variable through the read command:
+ 
+ 
+
+### What I Learned
+I learned that capitalizing the name of the variable is not necessary but it is a useful convention to separate variables from commands to be executed.
+
+I also learned that it is important that there are no spaces between the name of the variable, the equals sign, and the item to be assigned to the variable. 
 
 
 
