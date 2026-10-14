@@ -25,11 +25,13 @@ The error `Permission denied` means that the script has not been marked as execu
 **shebang** - A shorten form created by two characters `#!` which are traditionally called the **hash** and the **bang** respectively. 
 
 `#!/bin/sh`
+
 `echo "Hello, World!"`
 
 or 
 
 `#!/bin/bash`
+
 `echo "Hello, World!"`
 
 It is used for traditional shell scripts and other text-based languages like Perl, Ruby, and Python.
@@ -76,10 +78,11 @@ b) The Visual Editor
 
 I learned that variables hold temporary information in the script. 
 
+`#!/bin/bash`
 
-`#!/bin/bash
-ANIMAL="penguin"
-echo "My favorite animal is a $ANIMAL"`
+`ANIMAL="penguin"`
+
+`echo "My favorite animal is a $ANIMAL"`
 
 The variable name is `ANIMAL` and the `equals sign` assigns the string penguin.
 
