@@ -290,13 +290,33 @@ for S in *; do
 done
 ```
 
-Thfirst loop is functionally the same as the previous example, except that the list is passed to the for loop directly instead of using a variable. Using a variable helps the clarity of the script as someone can easily make changes to the variable rather than looking at a loop.
+For the first loop, list is passed to the `for` loop directly instead of using a variable. Using a variable helps the clarity of the script as someone can easily make changes to the variable rather than looking at a loop.
 
-The second loop uses a * which is a file glob. This gets expanded by the shell to all the files in the current directory.
+The second loop uses a `*` which is a file glob. This gets expanded by the shell to all the files in the current directory.
 
 ---
 
 **ii)`while` Loop**
 
+ i learned that `while` loop operates on a list of unknown size. 
 
+Its job is to keep running and on each iteration perform a test to see if it should run another time. 
 
+You can think of it as *“while some condition is true, do stuff.”*
+
+```bash
+#!/bin/bash
+
+i=0
+while [ $i -lt 10 ]; do
+  echo $i
+  i=$(( $i + 1))
+done
+echo “Done counting”
+```
+
+The example above shows a `while` loop that counts from 0 to 9. A counter variable, `i`, is initialized to `0`. Then a `while` loop is run with the `test` being *“is $i less than 10?”*
+
+Note that the while loop uses the same notation as an if statement!
+
+Within the `while` loop, the current value of `i` is echoed and then `1` is added to it through the `$`(( *arithmetic* )) command and assigned back into `i`. Once `i` becomes 10 the `while` statement returns false and processing continues after the loop.
