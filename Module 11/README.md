@@ -24,16 +24,15 @@ The error `Permission denied` means that the script has not been marked as execu
 
 **shebang** - A shorten form created by two characters `#!` which are traditionally called the **hash** and the **bang** respectively. 
 
-``bash``
-`#!/bin/sh`
+  `#!/bin/sh`
 
-`echo "Hello, World!"`
+  `echo "Hello, World!"`
 
 or 
 
-`#!/bin/bash`
+  `#!/bin/bash`
 
-`echo "Hello, World!"`
+  `echo "Hello, World!"`
 
 It is used for traditional shell scripts and other text-based languages like Perl, Ruby, and Python.
 
@@ -92,6 +91,7 @@ The script echos a string to the console. The string contains the name of the va
 When the interpreter sees that `dollar sign` it recognizes that it will be substituting the contents of the variable, which is called **interpolation**. 
 
 The output of the script is then `My favorite animal is a penguin`.
+
 
 `#!/bin/bash
 CURRENT_DIRECTORY=`pwd`
