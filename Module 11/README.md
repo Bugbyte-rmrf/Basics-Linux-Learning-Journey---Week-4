@@ -25,13 +25,13 @@ The error `Permission denied` means that the script has not been marked as execu
 **shebang** - A shorten form created by two characters `#!` which are traditionally called the **hash** and the **bang** respectively. 
 
 ```bash
-`#!/bin/sh
+#!/bin/sh
 echo "Hello, World!"
 ```
 
 or 
 ```bash
-`#!/bin/bash
+#!/bin/bash
 echo "Hello, World!"
 ```
 
@@ -80,7 +80,7 @@ b) The Visual Editor
 I learned that variables hold temporary information in the script. 
 
 ```bash
-`#!/bin/bash`
+#!/bin/bash`
 ANIMAL="penguin"
 echo "My favorite animal is a $ANIMAL"
 ```
@@ -93,15 +93,13 @@ When the interpreter sees that `dollar sign` it recognizes that it will be subst
 
 The output of the script is then `My favorite animal is a penguin`.
 
-
-`#!/bin/bash
+```bash
+#!/bin/bash
 CURRENT_DIRECTORY=`pwd`
-echo "You are in $CURRENT_DIRECTORY"`
+echo "You are in $CURRENT_DIRECTORY"
+```
 
-Based on the above, I learned another way to assign to a variable is to use the output of another command as the contents of the variable by enclosing the command in back ticks:
-
-
-
+Based on the above, I learned another way to assign to a variable is to use the output of another command as the contents of the variable by enclosing the command in back ticks
 
 This pattern is often used to process text. 
 
