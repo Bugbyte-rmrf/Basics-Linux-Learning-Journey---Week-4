@@ -148,9 +148,10 @@ I also learned that it is important that there are no spaces between the name of
 
 **b) Conditionals**
 
-**i)`if` Command*
-I learned that Conditionals lets you to make your script do different functions based on tests called **branching**.
+---
 
+**i)`if` Command**
+I learned that Conditionals lets you to make your script do different functions based on tests called **branching**.
 
 The `if` statement is the basic operator to implement branching.
 
@@ -159,6 +160,10 @@ if somecommand; then
   # do this if somecommand has an exit code of 0
 fi
 ```
+
+---
+
+**ii)`grep` Command**
 
 Using what you know about `grep`, you can now write a script that does different things based on the presence of a string in the password file:
 
@@ -174,6 +179,10 @@ fi
 
 I learned that from the above example, instead of an `fi` to close off the `if` block, there’s an `else`. This lets you do one action if the condition is true, and another if the condition is false. The `else `block must still be closed with the `fi` keyword.
 
+---
+
+**iii)`test` Command**
+
 The `test` command gives you easy access to comparison and file test operators. For example:
 - `test –f /dev/ttyS0` - 0 if the file exists
 - `test ! –f /dev/ttyS0` - 0 if the file doesn’t exist
@@ -188,6 +197,10 @@ The `test` command gives you easy access to comparison and file test operators. 
 - `test 1 –eq 1 –a 2 –eq 2` - `-a` is AND: both must be the same
 
 Consult the `test man` page for more.
+
+---
+
+**iv)`elif` Command**
 
 I learned also that the `if` statement has a final form that lets you do multiple comparisons at one time using `elif` (short for `else if`).
 
