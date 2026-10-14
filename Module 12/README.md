@@ -125,13 +125,11 @@ I also learned that keyboards, mice, monitors, printers and hard disks are all c
 
 ---
 
-### 5. Hard Drives
+### 6. Hard Drives
 
 **Hard drives / hard disks / disk devices or storage devices** - Any electromechanical or electronic storage device that holds data to be accessed by the system.
 
 **Partition** -  A logical division of a hard drive, designed to take a large amount of available storage space and break it up into smaller areas. 
-
-*Microsoft Windows* to have a single partition for each hard drive, on *Linux distributions*, multiple partitions per hard drive is common.
 
 **Master Boot Record (MBR)** - A partitioning technology used by some hard drives.  It has been used since the early days of the Personal Computer (PC). The old term (fixed disk) gave rise to several command names: the `fdisk`, `cfdisk` and `sfdisk` commands, which are tools for working with the MBR partitioned disks.
 
@@ -141,42 +139,78 @@ I also learned that keyboards, mice, monitors, printers and hard disks are all c
 
 ---
 
-Hard drives are associated with file names (called device files) that are stored in the /dev directory. Each device file name is made up of multiple parts.
+### File Names / Device Files Associated with Hard Drives
 
-File Type
+The device files are stored in the /dev directory. Each device file name is made up of multiple parts.
 
-The file name is prefixed based on the different types of hard drives. IDE (Intelligent Drive Electronics) hard drives begin with hd, while USB, SATA (Serial Advanced Technology Attachment) and SCSI (Small Computer System Interface) hard drives begin with sd.
+**a) File Type**
 
-Device Order
+The file name is prefixed based on the different types of hard drives. *IDE (Intelligent Drive Electronics)* hard drives begin with `hd`, while *USB, SATA (Serial Advanced Technology Attachment)* and *SCSI (Small Computer System Interface)* hard drives begin with `sd`.
 
-Each hard drive is then assigned a letter which follows the prefix. For example, the first IDE hard drive would be named /dev/hda and the second would be /dev/hdb, and so on.
+**b)Device Order**
 
-Partition
+Each hard drive is then assigned a letter which follows the prefix. For example, the first IDE hard drive would be named `/dev/hda` and the second would be `/dev/hdb`, and so on.
 
-Finally, each partition on a disk is given a unique numeric indicator. For example, if a USB hard drive has two partitions, they could be associated with the /dev/sda1 and /dev/sda2 device files.
+**c)Partition**
 
+Finally, each partition on a disk is given a unique numeric indicator. For example, if a USB hard drive has two partitions, they could be associated with the `/dev/sda1` and `/dev/sda2` device files.
 
+<img width="578" height="34" alt="Screenshot from 2026-10-14 20-47-59" src="https://github.com/user-attachments/assets/298c3ff4-1fcb-44bf-90de-3a4f2a579d2d" />
 
+The `fdisk` command can be used to display further information about the partitions:
 
+<img width="614" height="216" alt="Screenshot from 2026-10-14 20-48-34" src="https://github.com/user-attachments/assets/e199380a-68a8-4329-b711-bb805a40b5eb" />
 
+---
 
+### What I Learned
+
+*Microsoft Windows* to have a single partition for each hard drive, on *Linux distributions*, multiple partitions per hard drive is common.
+
+The GPT disks use a newer type of partitioning, which allows the user to divide the disk into more partitions than what MBR supports.
+
+---
+
+### 7. Solid State Disks
+
+**Solid state disks** -  A larger capacity USB thumb drives in construction and function. 
+
+As there are no moving parts and spinning disks, just memory locations to be read by the controller, a solid state disk is measurably and visibly faster in accessing the information stored in its memory chips.
+
+A solid state disk is controlled by an embedded or onboard processor that makes the decisions as to where and how data is written and read back from the memory chips when requested.
+
+---
+
+**Advantages of a solid state disk**
+
+- Lower power usage,
+- Time savings in system booting,
+- Faster program loads, and
+- Less heat and vibration from no moving parts.
+
+---
+
+**Disadvantages of a solid state disk**
+
+- Higher costs in comparison to spinning hard disks,
+- Lower capacity due to the higher cost, and if soldered directly on the motherboard/mainboard, no ability to upgrade by swapping out the drive.
+
+---
+
+### 8. Optical Drives
+
+Optical drives, often referred to as CD-ROMs, DVDs, or Blu-Ray, are removable storage media. While some devices used with optical disks are read-only, others are capable of burning (writing to) disks, when using a writable type of disk. There are various standards for writable and rewritable disks, such as CD-R, CD+R, DVD+RW, and DVD-RW.
+
+Where these removable disks are mounted in the file system is an important consideration for a Linux administrator. Modern distributions often mount the disks under the /media folder, while older distributions typically mount them under the /mnt folder. For example, a USB thumb drive might be mounted on the /media/usbthumb path.
+
+Upon mounting, most GUI interfaces prompt the user to take some action, such as open the contents of the disk in a file browser or start a media program. When the user is finished using the disk, it is necessary to unmount it using a menu or the umount command.
 
 
 
 ### What I Learned
-The GPT disks use a newer type of partitioning, which allows the user to divide the disk into more partitions than what MBR supports.
+Consider the difference between a traditional spinning platter hard disk and a USB thumb drive. The former literally has spinning disk platters in it that are read by drive heads, and the spinning disks are laid out to take advantage of the spinning nature of the device. Data is written (and read) in long strings of sequential blocks that a drive head encounters as the platter spins around.
 
+---
 
-
-
-
-
-
-
-
-
-
-
-
-
+### 9. Managing Devices
 
