@@ -33,7 +33,7 @@ I learned that `arch` command allows you to see which family the CPU of the curr
 
 <img width="616" height="43" alt="Screenshot from 2026-10-14 19-28-16" src="https://github.com/user-attachments/assets/309cc014-91e4-41e0-9fd4-7cb5b1d18705" />
 
-** Types of Processors**
+**Types of Processors**
 
 - *x86 system* - the system processes data 32 bits at a time; on an x86_64 the system processes data 64 bits at a time.
 - *x86_64 system* -is also capable of processing data 32 bits at a time in a backward compatible mode.
@@ -54,16 +54,57 @@ I also learned that one of the main advantages of a 64-bit system is the ability
 
 ---
 
-### 3. Random Access Memory
-The motherboard typically has slots where random-access memory (RAM) can be connected to the system. The 32-bit architecture systems can use up to 4 gigabytes (GB) of RAM, while 64-bit architectures are capable of addressing and using far more RAM.
+### 4. Random Access Memory
+I learned that the 32-bit architecture systems can use up to 4 gigabytes (GB) of RAM, while 64-bit architectures are capable of addressing and using far more RAM.
+
+When the system is running low on RAM, virtualized memory called **swap space** is used to temporarily store data to disk. 
+
+Data stored in RAM that has not been used recently is moved over to the section of the hard drive designated as swap, freeing up more RAM for use by currently active programs. 
+
+If needed, this swapped data can be moved back into RAM at a later time. The system does all of this automatically as long as swap is configured.
+
+I learned that `free` command to view the amount of RAM in the system, including the swap space. The following options apply with `free` command:
+
+- `-m` option - force the output to be rounded to the nearest megabyte (MB)
+- `-g` option to force the output to be rounded to the nearest gigabyte (GB)
+
+<img width="609" height="149" alt="Screenshot from 2026-10-14 19-45-30" src="https://github.com/user-attachments/assets/99a9836d-05e2-41c7-949d-a00e46fe69c0" />
+
+### What I Learned
+ I learned that the motherboard typically has slots where random-access memory (RAM) can be connected to the system. 
 
 In some cases, the RAM a system has might not be enough to handle all of the operating system requirements. Once invoked, programs are loaded in RAM along with any data they need to store, while instructions are sent to the processor when they execute.
 
-When the system is running low on RAM, virtualized memory called swap space is used to temporarily store data to disk. Data stored in RAM that has not been used recently is moved over to the section of the hard drive designated as swap, freeing up more RAM for use by currently active programs. If needed, this swapped data can be moved back into RAM at a later time. The system does all of this automatically as long as swap is configured.
+---
+
+### 5. Buses
+
+**Bus** - It is a high-speed connection that allows communication between computers or the components inside a computer. The motherboard has buses that allow for multiple devices to connect to the system, including the Peripheral Component Interconnect (PCI) and Universal Serial Bus (USB). The motherboard also has connectors for monitors, keyboards and mice.
+
+Different system types will use a bus differently to connect components. In a desktop or server computer, there is a motherboard with the processor, RAM, and other components directly attached, and then a high-speed bus that allows additional components to be attached via card slots, such as video, network and other peripheral devices.
+
+Increasingly for laptop and light/thin/small form factor computers, the majority of the computer’s components may be directly connected to the motherboard, including the usual processor, RAM, as well as additional components like the network card. In this configuration, the bus still exists, but effectively one of the main convenience factors of being able to swap out or upgrade devices is no longer a possibility.
+
+Peripheral Devices
+
+Peripheral devices are components connected to a computer that allow input, output or data storage. Keyboards, mice, monitors, printers and hard disks are all considered peripherals and are accessed by the system in order to perform functions outside of central processing. To view all of the devices connected by the PCI bus, the user can execute the lspci command. The following is a sample output of this command. The highlighted sections show this system has a VGA controller (a monitor connector), an SCSI storage controller (a type of hard drive) and an Ethernet controller (a network connector):
+
+
+
+
+Universal Serial Bus Devices
+While the PCI bus is used for many internal devices such as sound and network cards, an ever-increasing number of external devices (or peripherals) are connected to the computer via USB.
+
+Devices connected internally are usually cold-plug, meaning the system must be shut down in order to connect or disconnect a device. USB devices are hot-plug, meaning they can be connected or disconnected while the system is running.
+
+Though USB devices are hot-plug by design, it's important to ensure that any mounted filesystems are correctly unmounted, or data loss and corruption of the filesystem may occur.
+
+To display the devices connected to the system via USB, execute the lsusb command:
 
 
 
 
 
-### What I Learned
+
+
 
