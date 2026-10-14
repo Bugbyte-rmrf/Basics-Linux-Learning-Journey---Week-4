@@ -69,7 +69,7 @@ At this point, you can exit the program without saving by pressing the N key, or
 - `Ctrl + Y/V` - page up / down
 - `Ctrl + C` - show the current position in the file and the file’s size
 
-b) The Visual Editor, 
+b) The Visual Editor
 
 `vi`, or its newer version, VI improved (`vim`), is a remarkably powerful editor but has a steep learning curve. 
 
@@ -78,7 +78,7 @@ b) The Visual Editor,
 
 I learned that variables hold temporary information in the script. 
 
-``bash
+
 `#!/bin/bash
 ANIMAL="penguin"
 echo "My favorite animal is a $ANIMAL"`
@@ -91,12 +91,14 @@ When the interpreter sees that `dollar sign` it recognizes that it will be subst
 
 The output of the script is then `My favorite animal is a penguin`.
 
-I also learned another way to assign to a variable is to use the output of another command as the contents of the variable by enclosing the command in back ticks:
-
-``bash
 `#!/bin/bash
 CURRENT_DIRECTORY=`pwd`
 echo "You are in $CURRENT_DIRECTORY"`
+
+Based on the above, I learned another way to assign to a variable is to use the output of another command as the contents of the variable by enclosing the command in back ticks:
+
+
+
 
 This pattern is often used to process text. 
 
