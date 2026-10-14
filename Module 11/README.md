@@ -74,7 +74,12 @@ b) The Visual Editor
 
 `vi`, or its newer version, VI improved (`vim`), is a remarkably powerful editor but has a steep learning curve. 
 
+---
+
 ### 3. Scripting Basics
+
+---
+
 **a) Variables**
 
 I learned that variables hold temporary information in the script. 
@@ -99,18 +104,44 @@ CURRENT_DIRECTORY=`pwd`
 echo "You are in $CURRENT_DIRECTORY"
 ```
 
-Based on the above, I learned another way to assign to a variable is to use the output of another command as the contents of the variable by enclosing the command in back ticks
+Based on the above, I learned another way to assign to a variable is to use the output of another command as the contents of the variable by enclosing the command in back ticks. This pattern is often used to process text. 
 
-This pattern is often used to process text. 
+It is possible to get input from the user of your script and assign it to a variable through the `read` command:
 
-It is possible to get input from the user of your script and assign it to a variable through the read command:
+```bash
+#!/bin/bash
+
+echo -n "What is your name? "
+read NAME
+echo "Hello $NAME!"
+```
+The `read` command can accept a string right from the keyboard or as part of command redirection
  
- 
+I learned also that the `grep` command can be used to look for a string within a file with the `–q` flag, which means “quiet”. The `grep`, while running in quiet mode, returns `0` if the string was found and `1` otherwise.
+
+<img width="609" height="106" alt="Screenshot from 2026-10-14 12-05-06" src="https://github.com/user-attachments/assets/cde6f3c8-5c67-4605-8fec-a468125dd9eb" />
+
+Likewise you can set the exit code of your own script with the `exit` command:
+
+```bash
+#!/bin/bash
+# Something bad happened!
+exit 1
+```
+The example above shows a comment `#`. Anything after the hash mark is ignored, which can be used to help the programmer leave notes. The `exit 1` returns exit code 1 to the caller. This even works in the shell, if you run this script from the command line and then type `echo $?` you will see it returns `1`.
+
+By convention, an exit code of `0` means *“everything is OK”*. Any exit codes *greater than `0`* mean *some kind of error happened*, which is specific to the program. 
+
 
 ### What I Learned
 I learned that capitalizing the name of the variable is not necessary but it is a useful convention to separate variables from commands to be executed.
 
 I also learned that it is important that there are no spaces between the name of the variable, the equals sign, and the item to be assigned to the variable. 
+
+---
+
+**b) Conditionals**
+I learned that Conditionals lets you do different things based on tests you write.
 
 
 
