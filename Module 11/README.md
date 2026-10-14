@@ -63,7 +63,7 @@ At this point, you can exit the program without saving by pressing the N key, or
 
 <img width="613" height="438" alt="Screenshot from 2026-10-14 11-06-21" src="https://github.com/user-attachments/assets/04fb3f11-3a2a-4550-a8c7-3d5764926e73" />
 
-*** Other Commands Used in GNU nano editor**
+**Other Commands Used in GNU nano editor**
 - `Ctrl + W` - search the document
 - `Ctrl + W`, then `Control + R` - search and replace
 - `Ctrl + G` - show all the commands possible
