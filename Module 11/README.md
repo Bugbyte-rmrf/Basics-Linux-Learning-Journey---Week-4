@@ -25,13 +25,12 @@ The error `Permission denied` means that the script has not been marked as execu
 **shebang** - A shorten form created by two characters `#!` which are traditionally called the **hash** and the **bang** respectively. 
 
 `#!/bin/sh`
-
 `echo "Hello, World!"`
 
 or 
 
-`#!/bin/bash
-echo "Hello, World!"`
+`#!/bin/bash`
+`echo "Hello, World!"`
 
 It is used for traditional shell scripts and other text-based languages like Perl, Ruby, and Python.
 
