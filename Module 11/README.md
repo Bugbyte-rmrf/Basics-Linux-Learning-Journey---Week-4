@@ -128,6 +128,7 @@ Likewise you can set the exit code of your own script with the `exit` command:
 # Something bad happened!
 exit 1
 ```
+
 The example above shows a comment `#`. Anything after the hash mark is ignored, which can be used to help the programmer leave notes. The `exit 1` returns exit code 1 to the caller. This even works in the shell, if you run this script from the command line and then type `echo $?` you will see it returns `1`.
 
 By convention, an exit code of `0` means *“everything is OK”*. Any exit codes *greater than `0`* mean *some kind of error happened*, which is specific to the program. 
@@ -141,15 +142,69 @@ I also learned that it is important that there are no spaces between the name of
 ---
 
 **b) Conditionals**
-I learned that Conditionals lets you do different things based on tests you write.
+
+I learned that Conditionals lets you to make your script do different functions based on tests called **branching**.
+
+* `if` Command*
+The `if` statement is the basic operator to implement branching.
+
+```bash
+if somecommand; then
+  # do this if somecommand has an exit code of 0
+fi
+```
+
+Using what you know about `grep`, you can now write a script that does different things based on the presence of a string in the password file:
+
+```bash
+#!/bin/bash
+
+if grep -q root /etc/passwd; then
+  echo root is in the password file
+else
+  echo root is missing from the password file
+fi
+```
+
+I learned that from the above example, instead of an `fi` to close off the `if` block, there’s an `else`. This lets you do one action if the condition is true, and another if the condition is false. The `else `block must still be closed with the `fi` keyword.
+
+The `test` command gives you easy access to comparison and file test operators. For example:
+- `test –f /dev/ttyS0` - 0 if the file exists
+- `test ! –f /dev/ttyS0` - 0 if the file doesn’t exist
+- `test –d /tmp` - 0 if the directory exists
+- ``test –x `which ls`` - substitute the location of `ls` then `test` if the user can execute
+- `test 1 –eq 1` - 0 if numeric comparison succeeds
+- `test ! 1 –eq 1` - NOT – 0 if the comparison fails
+- `test 1 –ne 1` - Easier, `test` for numeric inequality
+- `test “a” = “a”` - 0 if the string comparison succeeds
+- `test “a” != “a”	` - 0 if the strings are different
+- `test 1 –eq 1 –o 2 –eq 2` - `-o` is OR: either can be the same
+- `test 1 –eq 1 –a 2 –eq 2` - `-a` is AND: both must be the same
+
+Consult the `test man` page for more.
+
+I learned also that the `if` statement has a final form that lets you do multiple comparisons at one time using `elif` (short for `else if`).
+
+```bash
+#!/bin/bash
+
+if [ "$1" = "hello" ]; then
+  echo "hello yourself"
+elif [ "$1" = "goodbye" ]; then
+  echo "nice to have met you"
+  echo "I hope to see you again"
+else
+  echo "I didn't understand that"
+fi
+```
 
 
 
 
 
 
-
-
+### What I Learned
+In `test`command, 01 and 1 are the same by numeric comparison, but not by string comparison. You must always be careful to remember what kind of input you expect.
 
 
 
