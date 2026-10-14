@@ -242,19 +242,61 @@ goodbye)
   echo "I didn't understand that"
 esac
 ```
-The case statement starts off with a description of the expression being tested: case EXPRESSION in. The expression here is the quoted $1.
+The case statement starts off with a description of the expression being tested: `case EXPRESSION in`. The expression here is the `quoted $1`.
 
-Next, each set of tests are executed as a pattern match terminated by a closing parenthesis. The previous example first looks for hello or hi; multiple options are separated by the vertical bar | which is an OR operator in many programming languages. Following that are the commands to be executed if the pattern returns true, which are terminated by two semicolons. The pattern repeats.
+Next, each set of tests are executed as a pattern match terminated by a closing parenthesis. That is for `hello`or `hi`; multiple options are separated by the vertical bar `|` which is an OR operator in many programming languages. Following that are the commands to be executed if the pattern returns true, which are terminated by `two semicolons`. The pattern repeats.
 
-The * pattern is the same as an else because it matches anything. The behavior of the case statement is similar to the if/elif/else statement in that processing stops after the first match. If none of the other options matched, the * ensures that the last one will match.
-
-
-
-
-
+The `*` pattern is the same as an `else` because it matches anything. The behavior of the case statement is similar to the `if/elif/else`statement in that processing stops after the first match. If none of the other options matched, the `*` ensures that the last one will match.
 
 ### What I Learned
 In `test`command, 01 and 1 are the same by numeric comparison, but not by string comparison. You must always be careful to remember what kind of input you expect.
+
+---
+
+**c) Loops**
+
+ I learned that Loops allow code to be executed repeatedly. 
+
+---
+
+**i)`for` Loop**
+
+I learned that `for` loops are used when you have a finite collection over which you want to iterate, such as a list of files, or a list of server names:
+
+```bash
+#!/bin/bash
+
+SERVERS="servera serverb serverc"
+for S in $SERVERS; do
+  echo "Doing something to $S"
+done
+```
+
+The script first sets a variable containing a space separated list of server names. The `for` statement then loops over the list of servers, each time it sets the `S` variable to the current server name. 
+
+The choice of `S` was arbitrary, but note that the `S` has no dollar sign but the `$SERVERS` does, showing that `$SERVERS` will be expanded to the list of servers. The list does not have to be a variable. 
+
+I also learned that there are two more ways to pass a list as shown below:
+
+```bash
+#!/bin/bash
+
+for NAME in Sean Jon Isaac David; do
+  echo "Hello $NAME"
+done
+
+for S in *; do
+  echo "Doing something to $S"
+done
+```
+
+Thfirst loop is functionally the same as the previous example, except that the list is passed to the for loop directly instead of using a variable. Using a variable helps the clarity of the script as someone can easily make changes to the variable rather than looking at a loop.
+
+The second loop uses a * which is a file glob. This gets expanded by the shell to all the files in the current directory.
+
+---
+
+**ii)`while` Loop**
 
 
 
