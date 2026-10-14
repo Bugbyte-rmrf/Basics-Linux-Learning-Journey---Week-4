@@ -79,27 +79,99 @@ In some cases, the RAM a system has might not be enough to handle all of the ope
 
 ### 5. Buses
 
-**Bus** - It is a high-speed connection that allows communication between computers or the components inside a computer. The motherboard has buses that allow for multiple devices to connect to the system, including the Peripheral Component Interconnect (PCI) and Universal Serial Bus (USB). The motherboard also has connectors for monitors, keyboards and mice.
+**Bus** - It is a high-speed connection that allows communication between computers or the components inside a computer. 
 
-Different system types will use a bus differently to connect components. In a desktop or server computer, there is a motherboard with the processor, RAM, and other components directly attached, and then a high-speed bus that allows additional components to be attached via card slots, such as video, network and other peripheral devices.
+The motherboard has buses that allow for multiple devices to connect to the system, including:
+- Peripheral Component Interconnect (PCI) and
+- Universal Serial Bus (USB).
 
-Increasingly for laptop and light/thin/small form factor computers, the majority of the computer’s components may be directly connected to the motherboard, including the usual processor, RAM, as well as additional components like the network card. In this configuration, the bus still exists, but effectively one of the main convenience factors of being able to swap out or upgrade devices is no longer a possibility.
+---
 
-Peripheral Devices
+**a) Peripheral Devices**
 
-Peripheral devices are components connected to a computer that allow input, output or data storage. Keyboards, mice, monitors, printers and hard disks are all considered peripherals and are accessed by the system in order to perform functions outside of central processing. To view all of the devices connected by the PCI bus, the user can execute the lspci command. The following is a sample output of this command. The highlighted sections show this system has a VGA controller (a monitor connector), an SCSI storage controller (a type of hard drive) and an Ethernet controller (a network connector):
+**Peripheral devices** - Components connected to a computer that allow input, output or data storage. 
 
+Run `lspci` command to view all of the devices connected by the PCI bus.
 
+The following is a sample output of this command. 
 
+<img width="798" height="95" alt="Screenshot from 2026-10-14 20-01-08" src="https://github.com/user-attachments/assets/02cce54e-a48c-447c-b331-20969257a099" />
 
-Universal Serial Bus Devices
-While the PCI bus is used for many internal devices such as sound and network cards, an ever-increasing number of external devices (or peripherals) are connected to the computer via USB.
+The highlighted sections show this system has a VGA controller (a monitor connector), an SCSI storage controller (a type of hard drive) and an Ethernet controller (a network connector)
 
-Devices connected internally are usually cold-plug, meaning the system must be shut down in order to connect or disconnect a device. USB devices are hot-plug, meaning they can be connected or disconnected while the system is running.
+---
+
+**b) Universal Serial Bus Devices**
+
+I learned that USB devices are *hot-plug*, meaning they can be connected or disconnected while the system is running.
+
+Devices connected internally are usually *cold-plug*, meaning the system must be shut down in order to connect or disconnect a device. 
 
 Though USB devices are hot-plug by design, it's important to ensure that any mounted filesystems are correctly unmounted, or data loss and corruption of the filesystem may occur.
 
-To display the devices connected to the system via USB, execute the lsusb command:
+I also learned that `lsusb` command display the devices connected to the system via USB.
+
+<img width="798" height="95" alt="Screenshot from 2026-10-14 20-01-08" src="https://github.com/user-attachments/assets/ecff57b1-ed8e-4368-971d-a2a079d20b13" />
+
+---
+
+### What I Learned
+
+ I learned that in a desktop or server computer, there is a motherboard with the processor, RAM, and other components directly attached, and then a high-speed bus that allows additional components to be attached via card slots, such as video, network and other peripheral devices. 
+
+I also learned that for laptop and light/thin/small form factor computers, the majority of the computer’s components may be directly connected to the motherboard, including the usual processor, RAM, as well as additional components like the network card. In this configuration, the bus still exists, but effectively one of the main convenience factors of being able to swap out or upgrade devices is no longer a possibility.
+
+I also learned that keyboards, mice, monitors, printers and hard disks are all considered peripherals and are accessed by the system in order to perform functions outside of central processing. 
+
+---
+
+### 5. Hard Drives
+
+**Hard drives / hard disks / disk devices or storage devices** - Any electromechanical or electronic storage device that holds data to be accessed by the system.
+
+**Partition** -  A logical division of a hard drive, designed to take a large amount of available storage space and break it up into smaller areas. 
+
+*Microsoft Windows* to have a single partition for each hard drive, on *Linux distributions*, multiple partitions per hard drive is common.
+
+**Master Boot Record (MBR)** - A partitioning technology used by some hard drives.  It has been used since the early days of the Personal Computer (PC). The old term (fixed disk) gave rise to several command names: the `fdisk`, `cfdisk` and `sfdisk` commands, which are tools for working with the MBR partitioned disks.
+
+**GUID Partitioning Table (GPT)** - A partitioning type used by hard drives.It has been available since the year 2000.  GPT allows having partitions which can be larger than two terabytes (MBR does not). The tools for managing GPT disks are named similarly to their `fdisk` counterparts: `gdisk`, `cgdisk`, and `sgdisk`.
+
+**Both GUID & GPT types** - A family of tools that attempt to support both MBR and GPT type disks such as `parted` command and graphical `gparted` tool.
+
+---
+
+Hard drives are associated with file names (called device files) that are stored in the /dev directory. Each device file name is made up of multiple parts.
+
+File Type
+
+The file name is prefixed based on the different types of hard drives. IDE (Intelligent Drive Electronics) hard drives begin with hd, while USB, SATA (Serial Advanced Technology Attachment) and SCSI (Small Computer System Interface) hard drives begin with sd.
+
+Device Order
+
+Each hard drive is then assigned a letter which follows the prefix. For example, the first IDE hard drive would be named /dev/hda and the second would be /dev/hdb, and so on.
+
+Partition
+
+Finally, each partition on a disk is given a unique numeric indicator. For example, if a USB hard drive has two partitions, they could be associated with the /dev/sda1 and /dev/sda2 device files.
+
+
+
+
+
+
+
+
+
+### What I Learned
+The GPT disks use a newer type of partitioning, which allows the user to divide the disk into more partitions than what MBR supports.
+
+
+
+
+
+
+
 
 
 
