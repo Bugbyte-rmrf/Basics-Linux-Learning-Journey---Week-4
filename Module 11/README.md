@@ -47,7 +47,10 @@ I also learned that it is important to be comfortable using a text editor before
 ---
 
 ### 2. Editing Shell Scripts
-a) The GNU nano editor 
+
+---
+
+**a) The GNU nano editor** 
 
 It is a very simple editor well suited to editing small text files. 
 
@@ -70,7 +73,9 @@ At this point, you can exit the program without saving by pressing the N key, or
 - `Ctrl + Y/V` - page up / down
 - `Ctrl + C` - show the current position in the file and the file’s size
 
-b) The Visual Editor
+---
+
+**b) The Visual Editor**
 
 `vi`, or its newer version, VI improved (`vim`), is a remarkably powerful editor but has a steep learning curve. 
 
@@ -143,9 +148,10 @@ I also learned that it is important that there are no spaces between the name of
 
 **b) Conditionals**
 
+**i)`if` Command*
 I learned that Conditionals lets you to make your script do different functions based on tests called **branching**.
 
-* `if` Command*
+
 The `if` statement is the basic operator to implement branching.
 
 ```bash
